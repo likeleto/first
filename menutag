@@ -1,0 +1,22 @@
+<script>
+ $(document).ready(function ($) {
+   var menu;
+   //get menu block from fixed part of first page
+   menu = $(".page").eq(0).find(".fixed-position-container").appendTo("body").addClass("custom-menu").css({
+   "position": "fixed", "left": "0px","right": "0px","top": "0px","z-index": "9999"});
+   //catch click on links in menu block
+   $("a").on("click", $(menu), function () {
+   //if menu item equal Item1 go to slide 2
+     if ($(this).text() == "Item1")
+      RM.viewerRouter.go(2)
+     else if ($(this).text() == "Item2")
+      RM.viewerRouter.go(3)
+     else if ($(this).text() == "Item3")
+      RM.viewerRouter.go(4)
+    //else go to 1 slide (click on logo)
+     else
+      RM.viewerRouter.go(1)
+     return false;
+   });
+ });
+ </script>
